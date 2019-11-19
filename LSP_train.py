@@ -1,5 +1,5 @@
-#  Copyright (c) Microsoft Corporation. 
-#  Licensed under the MIT license. 
+# -*- coding: utf-8 -*-
+
 '''
  * @Desc: train GPT2 from scratch/ fine tuning.
           Modified based on Huggingface GPT-2 implementation

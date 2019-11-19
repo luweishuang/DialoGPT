@@ -515,5 +515,7 @@ If you use this code in your research, you can cite our [arxiv paper](https://ar
 }
 ```
 
+### 参考链接
+[Script to interact with the DialoGPT models](https://github.com/andreamad8/DialoGPT2-Interact)
 
 
