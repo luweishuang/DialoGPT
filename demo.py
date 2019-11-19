@@ -48,7 +48,7 @@ download_model = partial(download_model_folder, DATA_FOLDER=MODEL_FOLDER)
 # model size:  could be one of 'small' (GPT2 with 117M), 'medium'(345M) or 'large' (1542M)
 # dataset: one of 'multiref' or 'dstc'
 # from_scratch: True : load model trained from scratch or False: load model trained from fine-tuning the GPT-2
-target_folder = download_model(model_size='small', dataset='multiref', from_scratch=False)
+#target_folder = download_model(model_size='small', dataset='multiref', from_scratch=False)
 logger.info('Done!\n')
 
 
@@ -58,7 +58,7 @@ logger.info('Done!\n')
 logger.info('Downloading and Extracting Data...')
 if dargs.data == 'dummy':
     cmd = 'bash prepare4db.sh'
-    ret = sp.run(cmd.split(' '), stdout=sp.PIPE, stderr=sp.STDOUT, cwd=DATA_FOLDER)
+    #ret = sp.run(cmd.split(' '), stdout=sp.PIPE, stderr=sp.STDOUT, cwd=DATA_FOLDER)
 elif dargs.data == 'small':
     myCmd = os.popen('cd reddit_extractor; make -j 8; cd ..').read()
     cmd = 'gzip -d ./train.tsv.gz'
@@ -75,7 +75,7 @@ MAX_LEN = 128
 cmd = ['prepro.py', '--corpus', data_path, '--max_seq_len', f'{MAX_LEN}']
 cmd = ' '.join(cmd) #% {'CODE_ROOT': CODE_ROOT}
 print(cmd)
-ret = sp.run([PYTHON_EXE] + cmd.split(' '), stdout=sp.PIPE, stderr=sp.STDOUT)
+#ret = sp.run([PYTHON_EXE] + cmd.split(' '), stdout=sp.PIPE, stderr=sp.STDOUT)
 
 #data_db = data_path[:-4] +'.db'
 data_db = f'{data_path[:-4]}.{MAX_LEN}len.db'
