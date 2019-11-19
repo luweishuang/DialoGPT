@@ -1,10 +1,9 @@
-#  Copyright (c) Microsoft Corporation.
-#  Licensed under the MIT license.
-#
+# -*- coding: utf-8 -*-
+
 # Please assign the DATA_FOLDER before running this scripts, the data, pre-trained model, fine-tuned model will be
 # downloaded automatically to DATA_FOLDER
 
-import os,sys
+import os, sys
 import logging
 from functools import partial
 
@@ -43,7 +42,7 @@ else:
 # Download Model
 #########################################################################
 logger.info('Downloading models...')
-download_model = partial(download_model_folder, DATA_FOLDER=MODEL_FOLDER)
+download_model = partial(download_model_folder, DATA_FOLDER=MODEL_FOLDER)    # 把一个函数的某些参数给固定住，返回一个新的函数
 
 # model size:  could be one of 'small' (GPT2 with 117M), 'medium'(345M) or 'large' (1542M)
 # dataset: one of 'multiref' or 'dstc'
@@ -73,13 +72,12 @@ logger.info('Preparing Data...')
 
 MAX_LEN = 128
 cmd = ['prepro.py', '--corpus', data_path, '--max_seq_len', f'{MAX_LEN}']
-cmd = ' '.join(cmd) #% {'CODE_ROOT': CODE_ROOT}
+cmd = ' '.join(cmd)     # % {'CODE_ROOT': CODE_ROOT}
 print(cmd)
 ret = sp.run([PYTHON_EXE] + cmd.split(' '), stdout=sp.PIPE, stderr=sp.STDOUT)
 
 #data_db = data_path[:-4] +'.db'
 data_db = f'{data_path[:-4]}.{MAX_LEN}len.db'
-
 logger.info('Done!\n')
 
 #########################################################################
