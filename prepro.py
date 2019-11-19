@@ -1,5 +1,5 @@
-#  Copyright (c) Microsoft Corporation. 
-#  Licensed under the MIT license. 
+# -*- coding: utf-8 -*-
+
 """
 preprocess input data into feature and stores binary as python shelve DB
 each chunk is gzipped JSON string
@@ -205,7 +205,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--corpus', required=True,
+    parser.add_argument('--corpus', default='./data/train.tsv',
                         help='file name of training corpus (should be .tsv)')
     parser.add_argument('--chunk_size', type=int, default=65536,
                         help='num of data examples in a storing chunk')

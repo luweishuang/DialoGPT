@@ -1,5 +1,4 @@
-#  Copyright (c) Microsoft Corporation.
-#  Licensed under the MIT license.
+# -*- coding: utf-8 -*-
 
 import os
 import logging
@@ -65,7 +64,7 @@ def download_file(url, folder):
     with open(os.path.join(folder, file_name), 'wb') as f:
         http_get(url, f)
 
-
+# download_model(model_size='small', dataset='multiref', from_scratch=False)
 def download_model_folder(model_size, dataset=None, from_scratch=None, DATA_FOLDER=None):
     assert DATA_FOLDER is not None, 'DATA_FOLDER cannot be None'
     assert model_size in ['small', 'medium', 'large'], 'model size should be one of \'small\', \'medium\' or \'large\''
